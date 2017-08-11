@@ -1,0 +1,14 @@
+{
+  "name": "bm25",
+  "version": "0.0.1",
+  "description": "Computes BM25 Vectorization of Text. ",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Jung",
+  "license": "MIT"
+}
