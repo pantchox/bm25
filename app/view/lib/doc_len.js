@@ -1,6 +1,5 @@
-var _ = require(lodash);
-
 /*DOCSTRING: Build an array of the relative length of each document in a corpus.*/
+var _ = require('lodash');
 module.exports = (function()
 {
 	/**
@@ -9,7 +8,9 @@ module.exports = (function()
 	return function(matr)
 		    {
 		    	let docLengths = matr.map(row => row.length);
-		    	let avDocLength = _.sum(docLengths) / matr.length;	// use the _.sum fcn of Lodash
-		    	return docLengths.map(docLength => docLength / avDocLength)
+
+					// Compute avg length of the corpus from an array of doc lengths.
+		    	let avDocLength = _.sum(docLengths) / matr.length;
+		    	return docLengths.map(docLength => docLength / avDocLength);
 		    };
 })();
