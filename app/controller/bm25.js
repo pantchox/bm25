@@ -1,26 +1,17 @@
 /*DOCSTRING Compute bm25*/
-const memoizeIdf = require("../model/memoize_idf.js");
+const memoizeIdf = require("../../node_modules/idf/app/idf_map.js");
 const vsmObj = require("../view/corpus2vsm.js");
+const bm25formula = require("../model/bm25formula.js");
 
 module.exports = (function()
 {
-	/**
-	 * Function applying the BM25 formula to key parameters.
-	 */
-	function bm25formula(tf, idf, relDL, K=1.6, B=0.75)
-	{
-		let verbose = (B * relDL) + 1 - B;
-		let tfSaturate = tf / (K * verbose + tf);
-		return idf * tfSaturate; // computes the bm25 weight using its formula
-	}
-
 	//CONSTRUCTOR
 	var Bm25 = function(corpusMatr)
 	{
 		let vecSpaceObj = vsmObj(corpusMatr);
 		this.docLens = vecSpaceObj.docLens;
 		this.docs = vecSpaceObj.docs;
-		this.idfMap = memoizeIdf(this.docs)
+		this.idfMap = memoizeIdf(this.docs);
 		this.terms = Object.keys(this.idfMap);
 	}
 
