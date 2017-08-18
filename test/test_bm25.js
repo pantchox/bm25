@@ -3,9 +3,9 @@ var docLen = require("../app/view/lib/doc_len.js");
 var vsm = require("../app/view/corpus2vsm.js");
 var Bm25 = require("../app/controller/bm25.js");
 
-describe('Build a small test corpus, and test the IDF fcn. Also test its helper fcn.', function() {
+describe('Using the same corpus, test all essential fcns of the BM25 app.', function() {
     before(function() {
-      // Declare a sample corpus.
+      // Define a two-document sample corpus.
       sampMatr = [['uk','gramophone','gramophone','discussion'],
       				    ['gramophone','into','general','discussion','into','into']];
 
@@ -20,7 +20,7 @@ describe('Build a small test corpus, and test the IDF fcn. Also test its helper 
       vsmObj = {'docLens': [0.8, 1.2],
                 'docs': [doc1, doc2]};
 
-      // What the outcome document dicts will look like for this sample corpus.
+      // The resulting BM25 weighted doc-term matrix for the above sample corpus.
       bm = new Bm25(sampMatr);
       bm25matr = [ [  0.42372881355932196,
                       0.3538898166022831,
@@ -32,10 +32,9 @@ describe('Build a small test corpus, and test the IDF fcn. Also test its helper 
                       0.20934327179289988,
                       0.6198347107438017,
                       0.35211267605633806 ] ];
+    });//closing parenthesis of the before fcn
 
-    });
-
-    it('should compute vector of document lengths', function(){
+    it('should compute vector of relative document lengths for each doc in corpus', function(){
       assert.deepStrictEqual([0.8, 1.2], docLen(sampMatr));
     });
 
