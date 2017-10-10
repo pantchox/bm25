@@ -1,5 +1,5 @@
 /*DOCSTRING Compute bm25*/
-const memoizeIdf = require("../../node_modules/idf/app/idf_map.js");
+const memoizeIdf = require("../../node_modules/idf");
 const vsmObj = require("../view/corpus2vsm.js");
 const bm25formula = require("../model/bm25formula.js");
 
