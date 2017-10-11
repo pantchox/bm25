@@ -1,1 +1,1 @@
-module.exports = require('./app/controller/bm25.js');  
+module.exports = require('./app/controller/Bm25.js');  

@@ -1,7 +1,7 @@
 var assert = require('assert');
 var docLen = require("../app/view/lib/doc_len.js");
 var vsm = require("../app/view/corpus2vsm.js");
-var Bm25 = require("../app/controller/bm25.js");
+var Bm25 = require("../app/controller/Bm25.js");
 
 describe('Using the same corpus, test all essential fcns of the BM25 app.', function() {
     before(function() {
